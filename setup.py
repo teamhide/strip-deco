@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pythondi",
+    name="strip-deco",
     version="0.0.1",
     author="Hide",
     author_email="padocon@naver.com",

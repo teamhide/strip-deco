@@ -6,7 +6,7 @@ def is_valid_function(obj: Any) -> bool:
     return isfunction(obj) or ismethod(obj)
 
 
-def stripdeco(obj: Any, depth: int = None) -> Callable:
+def stripdeco(obj: Callable, depth: int = None) -> Callable:
     if not is_valid_function(obj=obj):
         return obj
 

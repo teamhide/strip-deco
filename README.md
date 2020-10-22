@@ -33,12 +33,14 @@ def test():
 
 original_func = stripdeco(obj=test)
 
+
 @deco
 @deco
 @deco
 def test():
     pass
     
+
 original_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
 ```
 
@@ -52,7 +54,8 @@ class Deco:
         def deco(*args, **kwargs):
             return func(*args, **kwargs)
         return deco
-        
+       
+ 
 @Deco()
 def test():
     pass
@@ -60,11 +63,14 @@ def test():
     
 original_func = stripdeco(obj=test)
 
+
 @Deco()
 @Deco()
 @Deco()
 def test():
     pass
+
+
 original_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
 ```
 
@@ -84,10 +90,19 @@ class Service:
     @deco
     def run(self):
         pass
+    
+    @deco
+    def run_with_arguments(self, user_id):
+        pass
+
+
         
         
 original_func = stripdeco(obj=Service().run)
-original_func(Service)  # Must add class through argument
+original_func(Service)  # Must add class through first argument
+
+original_func = stripdeco(obj=Service().run_with_arguments)
+original_func(Service, user_id=1)  # Case of other arguments
 ```
 
 ## Note

@@ -31,7 +31,8 @@ def test():
     pass
     
 
-original_func = stripdeco(obj=test)
+stripped_func = stripdeco(obj=test)
+stripped_func()
 
 
 @deco
@@ -41,7 +42,8 @@ def test():
     pass
     
 
-original_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
+stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
+stripped_func()
 ```
 
 ## Example of Class decorator
@@ -61,7 +63,8 @@ def test():
     pass
     
     
-original_func = stripdeco(obj=test)
+stripped_func = stripdeco(obj=test)
+stripped_func()
 
 
 @Deco()
@@ -71,7 +74,8 @@ def test():
     pass
 
 
-original_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
+stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
+stripped_func()
 ```
 
 ## Example of class method
@@ -98,11 +102,11 @@ class Service:
 
         
         
-original_func = stripdeco(obj=Service().run)
-original_func(Service)  # Must add class through first argument
+stripped_func = stripdeco(obj=Service().run)
+stripped_func(Service)  # Must add class through first argument
 
-original_func = stripdeco(obj=Service().run_with_arguments)
-original_func(Service, user_id=1)  # Case of other arguments
+stripped_func = stripdeco(obj=Service().run_with_arguments)
+stripped_func(Service, user_id=1)  # Case of other arguments
 ```
 
 ## Note

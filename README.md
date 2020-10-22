@@ -98,6 +98,6 @@ original_func(Service)  # Must add class through argument
 - The class argument is required when executing class method.
 
 
-[license]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
+[license]: https://img.shields.io/badge/License-GPLv3-blue.svg
 [pypi]: https://img.shields.io/pypi/v/strip-deco
 [pyversions]: https://img.shields.io/pypi/pyversions/strip-deco

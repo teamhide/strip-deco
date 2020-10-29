@@ -46,7 +46,7 @@ stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
 stripped_func()
 ```
 
-## Example of Class decorator
+## Example of class decorator
 ```python
 from strip_deco import stripdeco
 
@@ -103,10 +103,10 @@ class Service:
         
         
 stripped_func = stripdeco(obj=Service().run)
-stripped_func(Service)  # Must add class through first argument
+stripped_func(Service())  # Must add class instance through first argument
 
 stripped_func = stripdeco(obj=Service().run_with_arguments)
-stripped_func(Service, user_id=1)  # Case of other arguments
+stripped_func(Service(), user_id=1)  # Case of other arguments
 ```
 
 ## Note

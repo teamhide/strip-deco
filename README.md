@@ -102,10 +102,10 @@ class Service:
 
         
         
-stripped_func = stripdeco(obj=Service().run)
+stripped_func = stripdeco(obj=Service.run)
 stripped_func(Service())  # Must add class instance through first argument
 
-stripped_func = stripdeco(obj=Service().run_with_arguments)
+stripped_func = stripdeco(obj=Service.run_with_arguments)
 stripped_func(Service(), user_id=1)  # Case of other arguments
 ```
 

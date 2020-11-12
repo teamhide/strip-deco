@@ -17,7 +17,7 @@ pip3 install strip-deco
 
 ## Example of function decorator
 ```python
-from strip_deco import stripdeco
+from strip_deco import stripdeco, run_after_strip
 
 
 def deco(func):
@@ -33,6 +33,8 @@ def test():
 
 stripped_func = stripdeco(obj=test)
 stripped_func()
+# OR
+run_after_strip(obj=test)
 
 
 @deco
@@ -44,11 +46,13 @@ def test():
 
 stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
 stripped_func()
+# OR
+run_after_strip(obj=test)
 ```
 
 ## Example of class decorator
 ```python
-from strip_deco import stripdeco
+from strip_deco import stripdeco, run_after_strip
 
 
 class Deco:
@@ -65,6 +69,8 @@ def test():
     
 stripped_func = stripdeco(obj=test)
 stripped_func()
+# OR
+run_after_strip(obj=test)
 
 
 @Deco()
@@ -76,11 +82,13 @@ def test():
 
 stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
 stripped_func()
+# OR
+run_after_strip(obj=test, depth=2)
 ```
 
 ## Example of class method
 ```python
-from strip_deco import stripdeco
+from strip_deco import stripdeco, run_after_strip
 
 
 def deco(func):
@@ -104,9 +112,13 @@ class Service:
         
 stripped_func = stripdeco(obj=Service.run)
 stripped_func(Service())  # Must add class instance through first argument
+# OR
+run_after_strip(obj=Service().run)
 
 stripped_func = stripdeco(obj=Service.run_with_arguments)
 stripped_func(Service(), user_id=1)  # Case of other arguments
+# OR
+run_after_strip(obj=Service().run_with_arguments, user_id=1)
 ```
 
 ## Note

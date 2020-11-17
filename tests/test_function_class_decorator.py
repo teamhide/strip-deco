@@ -2,7 +2,7 @@ from strip_deco import stripdeco, run_after_strip
 from .conftest import ClassDecoratorWithWraps, ClassDecoratorWithoutWraps
 
 
-def test_stripdeco_class_deco_without_wraps():
+def test_function_stripdeco_class_deco_without_wraps():
     @ClassDecoratorWithoutWraps()
     def test():
         pass
@@ -12,7 +12,7 @@ def test_stripdeco_class_deco_without_wraps():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_class_deco_with_wraps():
+def test_function_stripdeco_class_deco_with_wraps():
     @ClassDecoratorWithWraps()
     def test():
         pass
@@ -22,7 +22,7 @@ def test_stripdeco_class_deco_with_wraps():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_class_deco_without_wraps_two_decorator():
+def test_function_stripdeco_class_deco_without_wraps_two_decorator():
     @ClassDecoratorWithoutWraps()
     @ClassDecoratorWithoutWraps()
     def test():
@@ -33,7 +33,7 @@ def test_stripdeco_class_deco_without_wraps_two_decorator():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_class_deco_with_wraps_two_decorator():
+def test_function_stripdeco_class_deco_with_wraps_two_decorator():
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
     def test():
@@ -44,7 +44,7 @@ def test_stripdeco_class_deco_with_wraps_two_decorator():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_class_deco_with_wraps_multiple_decorator():
+def test_function_stripdeco_class_deco_with_wraps_multiple_decorator():
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
@@ -59,7 +59,7 @@ def test_stripdeco_class_deco_with_wraps_multiple_decorator():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_class_deco_without_wraps_depth():
+def test_function_stripdeco_class_deco_without_wraps_depth():
     @ClassDecoratorWithoutWraps()
     @ClassDecoratorWithoutWraps()
     @ClassDecoratorWithoutWraps()
@@ -78,7 +78,7 @@ def test_stripdeco_class_deco_without_wraps_depth():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_class_deco_with_wraps_depth():
+def test_function_stripdeco_class_deco_with_wraps_depth():
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
@@ -97,7 +97,7 @@ def test_stripdeco_class_deco_with_wraps_depth():
     assert orig.__closure__ is None
 
 
-def test_run_after_strip_class_deco_without_wraps():
+def test_function_run_after_strip_class_deco_without_wraps():
     @ClassDecoratorWithoutWraps()
     def test():
         return 1
@@ -107,7 +107,7 @@ def test_run_after_strip_class_deco_without_wraps():
     assert orig == 1
 
 
-def test_run_after_strip_class_deco_with_wraps():
+def test_function_run_after_strip_class_deco_with_wraps():
     @ClassDecoratorWithWraps()
     def test():
         return 1
@@ -117,7 +117,7 @@ def test_run_after_strip_class_deco_with_wraps():
     assert orig == 1
 
 
-def test_run_after_strip_class_deco_without_wraps_two_decorator():
+def test_function_run_after_strip_class_deco_without_wraps_two_decorator():
     @ClassDecoratorWithoutWraps()
     @ClassDecoratorWithoutWraps()
     def test():
@@ -128,7 +128,7 @@ def test_run_after_strip_class_deco_without_wraps_two_decorator():
     assert orig == 1
 
 
-def test_run_after_strip_class_deco_with_wraps_multiple_decorator():
+def test_function_run_after_strip_class_deco_with_wraps_multiple_decorator():
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
@@ -143,7 +143,7 @@ def test_run_after_strip_class_deco_with_wraps_multiple_decorator():
     assert orig == 1
 
 
-def test_run_after_strip_class_deco_without_wraps_depth():
+def test_function_run_after_strip_class_deco_without_wraps_depth():
     @ClassDecoratorWithoutWraps()
     @ClassDecoratorWithoutWraps()
     @ClassDecoratorWithoutWraps()
@@ -162,7 +162,7 @@ def test_run_after_strip_class_deco_without_wraps_depth():
     assert orig == 1
 
 
-def test_run_after_strip_class_deco_with_wraps_depth():
+def test_function_run_after_strip_class_deco_with_wraps_depth():
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()
     @ClassDecoratorWithWraps()

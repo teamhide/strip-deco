@@ -2,7 +2,7 @@ from strip_deco import stripdeco, run_after_strip
 from .conftest import func_decorator_without_wraps, func_decorator_with_wraps
 
 
-def test_stripdeco_func_deco_without_wraps():
+def test_function_stripdeco_func_deco_without_wraps():
     @func_decorator_without_wraps
     def test():
         pass
@@ -12,7 +12,7 @@ def test_stripdeco_func_deco_without_wraps():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_func_deco_with_wraps():
+def test_function_stripdeco_func_deco_with_wraps():
     @func_decorator_with_wraps
     def test():
         pass
@@ -22,7 +22,7 @@ def test_stripdeco_func_deco_with_wraps():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_func_deco_with_without_wraps_two_decorator():
+def test_function_stripdeco_func_deco_with_without_wraps_two_decorator():
     @func_decorator_without_wraps
     @func_decorator_without_wraps
     def test():
@@ -33,7 +33,7 @@ def test_stripdeco_func_deco_with_without_wraps_two_decorator():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_func_deco_with_wraps_two_decorator():
+def test_function_stripdeco_func_deco_with_wraps_two_decorator():
     @func_decorator_with_wraps
     @func_decorator_with_wraps
     def test():
@@ -44,7 +44,7 @@ def test_stripdeco_func_deco_with_wraps_two_decorator():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_func_deco_with_without_wraps_multiple_decorator():
+def test_function_stripdeco_func_deco_with_without_wraps_multiple_decorator():
     @func_decorator_without_wraps
     @func_decorator_without_wraps
     @func_decorator_without_wraps
@@ -59,7 +59,7 @@ def test_stripdeco_func_deco_with_without_wraps_multiple_decorator():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_func_deco_with_without_wraps_depth():
+def test_function_stripdeco_func_deco_with_without_wraps_depth():
     @func_decorator_without_wraps
     @func_decorator_without_wraps
     @func_decorator_without_wraps
@@ -78,7 +78,7 @@ def test_stripdeco_func_deco_with_without_wraps_depth():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_func_deco_with_wraps_depth():
+def test_function_stripdeco_func_deco_with_wraps_depth():
     @func_decorator_with_wraps
     @func_decorator_with_wraps
     @func_decorator_with_wraps
@@ -97,7 +97,7 @@ def test_stripdeco_func_deco_with_wraps_depth():
     assert orig.__closure__ is None
 
 
-def test_run_after_strip_func_deco_without_wraps():
+def test_function_run_after_strip_func_deco_without_wraps():
     @func_decorator_without_wraps
     def test():
         return 1
@@ -107,7 +107,7 @@ def test_run_after_strip_func_deco_without_wraps():
     assert orig == 1
 
 
-def test_run_after_strip_func_deco_with_wraps():
+def test_function_run_after_strip_func_deco_with_wraps():
     @func_decorator_with_wraps
     def test():
         return 1
@@ -117,7 +117,7 @@ def test_run_after_strip_func_deco_with_wraps():
     assert orig == 1
 
 
-def test_run_after_strip_func_deco_with_without_wraps_two_decorator():
+def test_function_run_after_strip_func_deco_with_without_wraps_two_decorator():
     @func_decorator_without_wraps
     @func_decorator_without_wraps
     def test():
@@ -128,7 +128,7 @@ def test_run_after_strip_func_deco_with_without_wraps_two_decorator():
     assert orig == 1
 
 
-def test_run_after_strip_func_deco_with_wraps_two_decorator():
+def test_function_run_after_strip_func_deco_with_wraps_two_decorator():
     @func_decorator_with_wraps
     @func_decorator_with_wraps
     def test():
@@ -139,7 +139,7 @@ def test_run_after_strip_func_deco_with_wraps_two_decorator():
     assert orig == 1
 
 
-def test_run_after_strip_func_deco_with_without_wraps_multiple_decorator():
+def test_function_run_after_strip_func_deco_with_without_wraps_multiple_decorator():
     @func_decorator_without_wraps
     @func_decorator_without_wraps
     @func_decorator_without_wraps
@@ -154,7 +154,7 @@ def test_run_after_strip_func_deco_with_without_wraps_multiple_decorator():
     assert orig == 1
 
 
-def test_run_after_strip_func_deco_with_without_wraps_depth():
+def test_function_run_after_strip_func_deco_with_without_wraps_depth():
     @func_decorator_without_wraps
     @func_decorator_without_wraps
     @func_decorator_without_wraps
@@ -173,7 +173,7 @@ def test_run_after_strip_func_deco_with_without_wraps_depth():
     assert orig == 1
 
 
-def test_run_after_strip_func_deco_with_wraps_depth():
+def test_function_run_after_strip_func_deco_with_wraps_depth():
     @func_decorator_with_wraps
     @func_decorator_with_wraps
     @func_decorator_with_wraps

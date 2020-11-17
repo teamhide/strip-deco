@@ -121,8 +121,6 @@ stripped_func(Service(), user_id=1)  # Case of other arguments
 run_after_strip(obj=Service().run_with_arguments, user_id=1)
 ```
 
-Ex
-
 ## Example of class method with init
 ```python
 from strip_deco import stripdeco, run_after_strip

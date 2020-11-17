@@ -32,6 +32,11 @@ def run_after_strip(obj: Any, depth: int = None, **kwargs) -> Callable:
     if not is_valid_function(obj=obj) or depth and depth == 0:
         return obj()
 
+    try:
+        self = obj.__self__
+    except AttributeError:
+        pass
+
     while True:
         if depth is not None:
             if depth <= 0:
@@ -47,7 +52,7 @@ def run_after_strip(obj: Any, depth: int = None, **kwargs) -> Callable:
     try:
         return obj(**kwargs)
     except TypeError:
-        return obj(**kwargs)
+        return obj(self, **kwargs)
 
 
 __all__ = ["stripdeco", "run_after_strip"]

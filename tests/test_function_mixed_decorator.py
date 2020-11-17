@@ -7,7 +7,7 @@ from .conftest import (
 )
 
 
-def test_stripdeco_mixed_class_with_wrap_and_func_with_wrap():
+def test_function_stripdeco_mixed_class_with_wrap_and_func_with_wrap():
     @ClassDecoratorWithWraps()
     @func_decorator_with_wraps
     def test():
@@ -18,7 +18,7 @@ def test_stripdeco_mixed_class_with_wrap_and_func_with_wrap():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_without_wrap_and_func_without_wrap():
+def test_function_stripdeco_mixed_class_without_wrap_and_func_without_wrap():
     @ClassDecoratorWithoutWraps()
     @func_decorator_without_wraps
     def test():
@@ -29,7 +29,7 @@ def test_stripdeco_mixed_class_without_wrap_and_func_without_wrap():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_with_wrap_and_func_without_wrap():
+def test_function_stripdeco_mixed_class_with_wrap_and_func_without_wrap():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     def test():
@@ -40,7 +40,7 @@ def test_stripdeco_mixed_class_with_wrap_and_func_without_wrap():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_without_wrap_and_func_with_wrap():
+def test_function_stripdeco_mixed_class_without_wrap_and_func_with_wrap():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     def test():
@@ -51,7 +51,7 @@ def test_stripdeco_mixed_class_without_wrap_and_func_with_wrap():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_with_wrap_and_func_with_wrap_depth():
+def test_function_stripdeco_mixed_class_with_wrap_and_func_with_wrap_depth():
     @ClassDecoratorWithWraps()
     @func_decorator_with_wraps
     @ClassDecoratorWithWraps()
@@ -70,7 +70,7 @@ def test_stripdeco_mixed_class_with_wrap_and_func_with_wrap_depth():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_without_wrap_and_func_without_wrap_depth():
+def test_function_stripdeco_mixed_class_without_wrap_and_func_without_wrap_depth():
     @ClassDecoratorWithoutWraps()
     @func_decorator_without_wraps
     @ClassDecoratorWithoutWraps()
@@ -89,7 +89,7 @@ def test_stripdeco_mixed_class_without_wrap_and_func_without_wrap_depth():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_with_wrap_and_func_without_wrap_depth():
+def test_function_stripdeco_mixed_class_with_wrap_and_func_without_wrap_depth():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     @ClassDecoratorWithWraps()
@@ -108,7 +108,7 @@ def test_stripdeco_mixed_class_with_wrap_and_func_without_wrap_depth():
     assert orig.__closure__ is None
 
 
-def test_stripdeco_mixed_class_without_wrap_and_func_with_wrap_depth():
+def test_function_stripdeco_mixed_class_without_wrap_and_func_with_wrap_depth():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     @ClassDecoratorWithWraps()
@@ -127,7 +127,7 @@ def test_stripdeco_mixed_class_without_wrap_and_func_with_wrap_depth():
     assert orig.__closure__ is None
 
 
-def test_run_after_strip_mixed_class_with_wrap_and_func_with_wrap():
+def test_function_run_after_strip_mixed_class_with_wrap_and_func_with_wrap():
     @ClassDecoratorWithWraps()
     @func_decorator_with_wraps
     def test():
@@ -138,7 +138,7 @@ def test_run_after_strip_mixed_class_with_wrap_and_func_with_wrap():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_without_wrap_and_func_without_wrap():
+def test_function_run_after_strip_mixed_class_without_wrap_and_func_without_wrap():
     @ClassDecoratorWithoutWraps()
     @func_decorator_without_wraps
     def test():
@@ -149,7 +149,7 @@ def test_run_after_strip_mixed_class_without_wrap_and_func_without_wrap():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_with_wrap_and_func_without_wrap():
+def test_function_run_after_strip_mixed_class_with_wrap_and_func_without_wrap():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     def test():
@@ -160,7 +160,7 @@ def test_run_after_strip_mixed_class_with_wrap_and_func_without_wrap():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_without_wrap_and_func_with_wrap():
+def test_function_run_after_strip_mixed_class_without_wrap_and_func_with_wrap():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     def test():
@@ -171,7 +171,7 @@ def test_run_after_strip_mixed_class_without_wrap_and_func_with_wrap():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_with_wrap_and_func_with_wrap_depth():
+def test_function_run_after_strip_mixed_class_with_wrap_and_func_with_wrap_depth():
     @ClassDecoratorWithWraps()
     @func_decorator_with_wraps
     @ClassDecoratorWithWraps()
@@ -190,7 +190,7 @@ def test_run_after_strip_mixed_class_with_wrap_and_func_with_wrap_depth():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_without_wrap_and_func_without_wrap_depth():
+def test_function_run_after_strip_mixed_class_without_wrap_and_func_without_wrap_depth():
     @ClassDecoratorWithoutWraps()
     @func_decorator_without_wraps
     @ClassDecoratorWithoutWraps()
@@ -209,7 +209,7 @@ def test_run_after_strip_mixed_class_without_wrap_and_func_without_wrap_depth():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_with_wrap_and_func_without_wrap_depth():
+def test_function_run_after_strip_mixed_class_with_wrap_and_func_without_wrap_depth():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     @ClassDecoratorWithWraps()
@@ -228,7 +228,7 @@ def test_run_after_strip_mixed_class_with_wrap_and_func_without_wrap_depth():
     assert orig == 1
 
 
-def test_run_after_strip_mixed_class_without_wrap_and_func_with_wrap_depth():
+def test_function_run_after_strip_mixed_class_without_wrap_and_func_with_wrap_depth():
     @ClassDecoratorWithWraps()
     @func_decorator_without_wraps
     @ClassDecoratorWithWraps()

@@ -17,7 +17,7 @@ pip3 install strip-deco
 
 ## Example of function decorator
 ```python
-from strip_deco import stripdeco, run_after_strip
+from strip_deco import stripdeco
 
 
 def deco(func):
@@ -31,10 +31,7 @@ def test():
     pass
     
 
-stripped_func = stripdeco(obj=test)
-stripped_func()
-# OR
-run_after_strip(obj=test)
+stripdeco(obj=test)
 
 
 @deco
@@ -44,15 +41,12 @@ def test():
     pass
     
 
-stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
-stripped_func()
-# OR
-run_after_strip(obj=test)
+stripdeco(obj=test)
 ```
 
 ## Example of class decorator
 ```python
-from strip_deco import stripdeco, run_after_strip
+from strip_deco import stripdeco
 
 
 class Deco:
@@ -67,10 +61,7 @@ def test():
     pass
     
     
-stripped_func = stripdeco(obj=test)
-stripped_func()
-# OR
-run_after_strip(obj=test)
+stripdeco(obj=test)
 
 
 @Deco()
@@ -80,15 +71,12 @@ def test():
     pass
 
 
-stripped_func = stripdeco(obj=test, depth=2)  # It will only strip two decorator
-stripped_func()
-# OR
-run_after_strip(obj=test, depth=2)
+stripdeco(obj=test, depth=2)
 ```
 
 ## Example of class method
 ```python
-from strip_deco import stripdeco, run_after_strip
+from strip_deco import stripdeco
 
 
 def deco(func):
@@ -110,20 +98,13 @@ class Service:
 
         
         
-stripped_func = stripdeco(obj=Service.run)
-stripped_func(Service())  # Must add class instance through first argument
-# OR
-run_after_strip(obj=Service().run)
-
-stripped_func = stripdeco(obj=Service.run_with_arguments)
-stripped_func(Service(), user_id=1)  # Case of other arguments
-# OR
-run_after_strip(obj=Service().run_with_arguments, user_id=1)
+stripdeco(obj=Service().run)
+stripdeco(obj=Service().run_with_arguments, user_id=1)  # Case of other arguments
 ```
 
 ## Example of class method with init
 ```python
-from strip_deco import stripdeco, run_after_strip
+from strip_deco import stripdeco
 
 
 def deco(func):
@@ -148,15 +129,8 @@ class Service:
 
         
         
-stripped_func = stripdeco(obj=Service.run)
-stripped_func(Service(repo="repo"))  # Must add class instance through first argument
-# OR
-run_after_strip(obj=Service(repo="repo").run)
-
-stripped_func = stripdeco(obj=Service.run_with_arguments)
-stripped_func(Service(repo="repo"), user_id=1)  # Case of other arguments
-# OR
-run_after_strip(obj=Service(repo="repo").run_with_arguments, user_id=1)
+stripdeco(obj=Service(repo="repo").run)
+stripdeco(obj=Service(repo="repo").run_with_arguments, user_id=1)  # Case of other arguments
 ```
 
 - strip-deco automatically removes  any kind of decorators. (class/function)

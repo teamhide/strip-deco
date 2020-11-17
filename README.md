@@ -121,7 +121,45 @@ stripped_func(Service(), user_id=1)  # Case of other arguments
 run_after_strip(obj=Service().run_with_arguments, user_id=1)
 ```
 
-## Note
+Ex
+
+## Example of class method with init
+```python
+from strip_deco import stripdeco, run_after_strip
+
+
+def deco(func):
+    def _deco(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return result
+    return _deco
+
+
+class Service:
+    def __init__(self, repo):
+        self.user_id = repo
+
+    @deco
+    def run(self):
+        pass
+    
+    @deco
+    def run_with_arguments(self, user_id):
+        pass
+
+
+        
+        
+stripped_func = stripdeco(obj=Service.run)
+stripped_func(Service(repo="repo"))  # Must add class instance through first argument
+# OR
+run_after_strip(obj=Service(repo="repo").run)
+
+stripped_func = stripdeco(obj=Service.run_with_arguments)
+stripped_func(Service(repo="repo"), user_id=1)  # Case of other arguments
+# OR
+run_after_strip(obj=Service(repo="repo").run_with_arguments, user_id=1)
+```
 
 - strip-deco automatically removes  any kind of decorators. (class/function)
 - It supports both decorator,`functools wraps` and non functools wraps .

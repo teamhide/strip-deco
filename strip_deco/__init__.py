@@ -32,9 +32,6 @@ def run_after_strip(obj: Any, depth: int = None, **kwargs) -> Callable:
     if not is_valid_function(obj=obj) or depth and depth == 0:
         return obj()
 
-    if ismethod(obj):
-        self = obj.__self__
-
     while True:
         if depth is not None:
             if depth <= 0:
@@ -48,8 +45,8 @@ def run_after_strip(obj: Any, depth: int = None, **kwargs) -> Callable:
             break
 
     try:
-        return obj(self, **kwargs)
-    except UnboundLocalError:
+        return obj(**kwargs)
+    except TypeError:
         return obj(**kwargs)
 
 

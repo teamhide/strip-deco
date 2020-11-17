@@ -137,7 +137,7 @@ def deco(func):
 
 class Service:
     def __init__(self, repo):
-        self.user_id = repo
+        self.repo = repo
 
     @deco
     def run(self):

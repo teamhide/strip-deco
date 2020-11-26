@@ -15,7 +15,7 @@
 pip3 install strip-deco
 ```
 
-## Example of function decorator
+## Example of normal function
 ```python
 from strip_deco import stripdeco
 
@@ -42,36 +42,7 @@ def test():
     
 
 stripdeco(obj=test)
-```
-
-## Example of class decorator
-```python
-from strip_deco import stripdeco
-
-
-class Deco:
-    def __call__(self, func):
-        def deco(*args, **kwargs):
-            return func(*args, **kwargs)
-        return deco
-       
- 
-@Deco()
-def test():
-    pass
-    
-    
-stripdeco(obj=test)
-
-
-@Deco()
-@Deco()
-@Deco()
-def test():
-    pass
-
-
-stripdeco(obj=test, depth=2)
+stripdeco(obj=test, depth=1)  # Only strip one decorator
 ```
 
 ## Example of class method
@@ -88,18 +59,21 @@ def deco(func):
 
 class Service:
     @deco
+    @deco
     def run(self):
         pass
     
+    @deco
     @deco
     def run_with_arguments(self, user_id):
         pass
 
 
-        
-        
 stripdeco(obj=Service().run)
+stripdeco(obj=Service().run, depth=1)  # Only strip one decorator
+
 stripdeco(obj=Service().run_with_arguments, user_id=1)  # Case of other arguments
+stripdeco(obj=Service().run_with_arguments, depth=1, user_id=1)  # Only strip one decorator
 ```
 
 ## Example of class method with init
@@ -119,18 +93,21 @@ class Service:
         self.repo = repo
 
     @deco
+    @deco
     def run(self):
         pass
     
     @deco
+    @deco
     def run_with_arguments(self, user_id):
         pass
 
-
-        
         
 stripdeco(obj=Service(repo="repo").run)
+stripdeco(obj=Service(repo="repo").run, depth=1)  # Only strip one decorator
+
 stripdeco(obj=Service(repo="repo").run_with_arguments, user_id=1)  # Case of other arguments
+stripdeco(obj=Service(repo="repo").run_with_arguments, depth=1, user_id=1)  # Only strip one decorator
 ```
 
 - strip-deco automatically removes  any kind of decorators. (class/function)

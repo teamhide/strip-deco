@@ -1,12 +1,12 @@
 from inspect import isfunction, ismethod
-from typing import Callable, Any
+from typing import Any
 
 
 def is_valid_function(obj: Any) -> bool:
     return isfunction(obj) or ismethod(obj)
 
 
-def stripdeco(obj: Any, depth: int = None, **kwargs) -> Callable:
+def stripdeco(obj: Any, depth: int = None, **kwargs) -> None:
     if not is_valid_function(obj=obj) or depth and depth == 0:
         return obj()
 

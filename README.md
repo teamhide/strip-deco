@@ -15,6 +15,16 @@
 pip3 install strip-deco
 ```
 
+
+## Prototype
+```python
+def stripdeco(obj: Any, depth: int = None, **kwargs) -> None:
+    ...
+```
+- obj: Function or Class method
+- depth: If your function is wrapped in multiple decorators, you can set how many decorators to disable through the depth parameter.
+- kwargs: Arguments that obj have to receive
+
 ## Example of normal function
 ```python
 from strip_deco import stripdeco
